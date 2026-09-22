@@ -10,7 +10,6 @@ import { How } from '@/components/How';
 import { Legal } from '@/components/Legal';
 import { Share } from '@/components/Share';
 import { Sharia } from '@/components/Sharia';
-import { Sources } from '@/components/Sources';
 import { StickyCta } from '@/components/StickyCta';
 import { Support } from '@/components/Support';
 import { Transparency } from '@/components/Transparency';
@@ -68,7 +67,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <Transparency content={content} lang={lang} />
         <Support content={content} lang={lang} />
         <Share content={content} lang={lang} />
-        <Sources content={content} lang={lang} />
       </main>
       <Footer content={content} lang={lang} />
       <StickyCta label={content.ui.supportCta} />
