@@ -92,7 +92,7 @@
   }
 
   .btn {
-    @apply inline-flex select-none items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[0.95rem] font-semibold transition duration-200 active:scale-[0.98];
+    @apply inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3.5 text-[0.95rem] font-semibold transition duration-200 active:scale-[0.98];
   }
   .btn-primary {
     @apply bg-teal text-paper shadow-lg shadow-teal/25 hover:bg-teal-2;
