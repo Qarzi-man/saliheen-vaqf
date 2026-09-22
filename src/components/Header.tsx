@@ -73,15 +73,15 @@ export function Header({ lang, content }: { lang: Lang; content: Content }) {
             <Logo src={site.logoSrc} name={site.brand[lang]} />
           </a>
 
-          <nav aria-label={content.ui.sectionsNav} className="hidden lg:block">
-            <ul className="flex items-center gap-1 rounded-full border border-ink/10 bg-white/60 p-1.5 backdrop-blur">
+          <nav aria-label={content.ui.sectionsNav} className="hidden xl:block">
+            <ul className="flex flex-nowrap items-center gap-0.5 rounded-full border border-ink/10 bg-white/60 p-1.5 backdrop-blur">
               {links.map((l) => (
                 <li key={l.id}>
                   <a
                     href={`#${l.id}`}
                     aria-current={active === l.id ? 'true' : undefined}
                     className={cn(
-                      'rounded-full px-4 py-2 text-sm font-medium text-ink/70 transition hover:text-ink',
+                      'whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-ink/70 transition hover:text-ink',
                       active === l.id && 'bg-ink text-paper hover:text-paper',
                     )}
                   >
@@ -100,7 +100,7 @@ export function Header({ lang, content }: { lang: Lang; content: Content }) {
             <LangSwitch lang={lang} label={content.ui.language} className="sm:hidden" />
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? content.ui.closeMenu : content.ui.menu}
@@ -123,7 +123,7 @@ export function Header({ lang, content }: { lang: Lang; content: Content }) {
       <div
         id="mobile-menu"
         hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-[4.25rem] z-40 overflow-y-auto bg-paper px-5 pb-10 pt-6 sm:top-20 lg:hidden"
+        className="fixed inset-x-0 bottom-0 top-[4.25rem] z-40 overflow-y-auto bg-paper px-5 pb-10 pt-6 sm:top-20 xl:hidden"
       >
         <nav aria-label={content.ui.sectionsNav}>
           <ul className="space-y-1">
