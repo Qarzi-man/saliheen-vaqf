@@ -36,6 +36,8 @@ export const ru: Content = {
     sectionsNav: 'Разделы страницы',
     external: '(откроется в новой вкладке)',
     backToTop: 'Наверх',
+    switchToDark: 'Включить тёмную тему',
+    switchToLight: 'Включить светлую тему',
   },
 
   nav: {
