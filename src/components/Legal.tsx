@@ -1,10 +1,10 @@
-import { ArrowRight, ArrowUpRight, Clock, Scale } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Clock } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import type { Lang } from '@/i18n/config';
 import type { Content, LegalDoc } from '@/content/types';
 import { getSource, sourceUrl } from '@/content/sources';
 import { charterUrl } from '@/config/transparency';
-import { Cite, Cited } from './Cite';
+import { Cite } from './Cite';
 import { SectionHead } from './SectionHead';
 
 function DocCard({
@@ -93,17 +93,6 @@ export function Legal({ content, lang }: { content: Content; lang: Lang }) {
     <section id="legal" className="section">
       <div className="container-x">
         <SectionHead eyebrow={legal.eyebrow} title={legal.title} lead={legal.lead} />
-
-        {/* Честное уточнение: отдельного закона о вакфе нет */}
-        <div className="reveal mt-12 flex gap-4 rounded-r-3xl border-l-4 border-gold bg-gold-soft/25 p-6 sm:gap-5 sm:p-8">
-          <Scale className="mt-1 h-6 w-6 shrink-0 text-gold-ink" aria-hidden="true" />
-          <div>
-            <h3 className="font-serif text-xl font-medium sm:text-2xl">{legal.honest.title}</h3>
-            <p className="mt-3 max-w-4xl text-[0.98rem] leading-relaxed text-ink/80">
-              <Cited value={legal.honest.text} label={label} />
-            </p>
-          </div>
-        </div>
 
         {/*
           Карточка Гражданского кодекса намеренно убрана: бо́льшая часть его статей
