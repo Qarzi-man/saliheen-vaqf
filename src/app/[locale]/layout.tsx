@@ -68,6 +68,18 @@ export default async function RootLayout({ children, params }: Props) {
     <html lang={lang} suppressHydrationWarning>
       <head>
         {/* Включает анимации появления только при работающем JS (иначе всё видно сразу). */}
+        {/*
+          Тема выставляется здесь, до первой отрисовки: если сделать это в
+          React-компоненте (после гидратации), будет заметное мигание светлой
+          темой перед переключением на сохранённую тёмную. Порядок: сохранённый
+          выбор в localStorage → иначе системная настройка prefers-color-scheme.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)}catch(e){}",
+          }}
+        />
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body>
