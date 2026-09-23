@@ -27,6 +27,8 @@ export const tg: Content = {
     sectionsNav: 'Бахшҳои саҳифа',
     external: '(дар равзанаи нав кушода мешавад)',
     backToTop: 'Ба боло',
+    switchToDark: 'Мавзӯи торикро фаъол кунед',
+    switchToLight: 'Мавзӯи равшанро фаъол кунед',
   },
 
   nav: {
