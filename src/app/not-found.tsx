@@ -1,6 +1,7 @@
 import '@fontsource-variable/onest';
 import '@fontsource-variable/source-serif-4';
 import './globals.css';
+import { asset } from '@/lib/assets';
 
 export const metadata = { title: '404 · Салиҳин', robots: { index: false } };
 
@@ -13,10 +14,10 @@ export default function NotFound() {
           <p className="eyebrow">404</p>
           <h1 className="h2 mt-6">Саҳифа ёфт нашуд · Страница не найдена</h1>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <a href="/tj" className="btn btn-primary">
+            <a href={asset('/tj')} className="btn btn-primary">
               Тоҷикӣ
             </a>
-            <a href="/ru" className="btn btn-ghost">
+            <a href={asset('/ru')} className="btn btn-ghost">
               Русский
             </a>
           </div>

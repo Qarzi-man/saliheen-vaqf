@@ -20,6 +20,31 @@
   --gold-soft: 231 213 168; /* мягкое золото               #E7D5A8 */
   --gold-ink: 130 92 20; /* золото для мелкого текста      #825C14 */
   --leaf: 79 138 107; /* зелень (метафора роста)           #4F8A6B */
+
+  /*
+   * Фиксированные токены — НЕ переключаются светлой/тёмной темой.
+   * Используются только в секциях, которые всегда тёмные по дизайну
+   * (Шариатская основа, Поддержать, подвал) — копии базовых значений
+   * --paper/--ink на момент запуска светлой темы.
+   */
+  --fixed-paper: 250 247 240;
+  --fixed-ink: 11 37 36;
+}
+
+/*
+ * Тёмная тема — переключается атрибутом data-theme="dark" на <html>
+ * (см. ThemeToggle.tsx). Меняются только «адаптивные» поверхности
+ * (paper/ink/mist) — акцентные бренд-цвета (teal/gold/leaf) остаются
+ * теми же в обеих темах.
+ */
+:root[data-theme='dark'] {
+  --paper: 15 23 22; /* тёмный фон страницы                #0F1716 */
+  --paper-2: 22 32 31; /* вторичный тёмный фон              #16201F */
+  --sand: 34 46 44; /* тёмный «песок»                       #222E2C */
+  --ink: 237 241 238; /* светлый текст на тёмном фоне       #EDF1EE */
+  --ink-2: 198 210 205; /* вторичный светлый текст          #C6D2CD */
+  --mist: 25 40 38; /* тёмная «дымка» для декоративных фонов #192826 */
+  --gold-ink: 216 182 122; /* золото для текста — светлее для контраста на тёмном #D8B67A */
 }
 
 @layer base {
@@ -27,15 +52,19 @@
     scroll-behavior: smooth;
     scroll-padding-top: 5.5rem;
     -webkit-text-size-adjust: 100%;
+    color-scheme: light;
+  }
+  html[data-theme='dark'] {
+    color-scheme: dark;
   }
   body {
-    @apply bg-paper font-sans text-ink antialiased;
+    @apply bg-paper font-sans text-ink antialiased transition-colors duration-300;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
   ::selection {
     background: rgb(var(--gold-soft));
-    color: rgb(var(--ink));
+    color: rgb(var(--fixed-ink));
   }
   :focus-visible {
     outline: 2px solid rgb(var(--gold));
@@ -85,21 +114,21 @@
     @apply text-lg leading-relaxed text-ink/75 sm:text-xl;
   }
   .card {
-    @apply rounded-3xl border border-ink/10 bg-white/75 p-6 shadow-soft sm:p-8;
+    @apply rounded-3xl border border-ink/10 bg-paper/75 p-6 shadow-soft sm:p-8;
   }
   .chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/70 px-3.5 py-1.5 text-xs font-medium text-ink/80;
+    @apply inline-flex items-center gap-2 rounded-full border border-ink/10 bg-paper/70 px-3.5 py-1.5 text-xs font-medium text-ink/80;
   }
 
   .btn {
     @apply inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3.5 text-[0.95rem] font-semibold transition duration-200 active:scale-[0.98];
   }
   .btn-primary {
-    @apply bg-teal text-paper shadow-lg shadow-teal/25 hover:bg-teal-2;
+    @apply bg-teal text-fixed-paper shadow-lg shadow-teal/25 hover:bg-teal-2;
   }
   .btn-gold {
     background: rgb(var(--gold-soft));
-    color: rgb(var(--ink));
+    color: rgb(var(--fixed-ink));
     box-shadow: 0 10px 30px -12px rgb(var(--gold) / 0.7);
   }
   .btn-gold:hover {
@@ -109,7 +138,7 @@
     @apply border border-ink/20 text-ink hover:bg-ink/5;
   }
   .btn-ghost-light {
-    @apply border border-paper/30 text-paper hover:bg-paper/10;
+    @apply border border-fixed-paper/30 text-fixed-paper hover:bg-fixed-paper/10;
   }
 
   /* сноски-источники [n] */
