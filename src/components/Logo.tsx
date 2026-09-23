@@ -31,7 +31,8 @@ export function Logo({
   name: string;
   className?: string;
   imgClassName?: string;
-  tone?: 'dark' | 'light';
+  /** 'fixed-*' — не переключается темой; для мест, где фон вокруг логотипа сам не меняется (напр. светлая плашка в подвале). */
+  tone?: 'dark' | 'light' | 'fixed-dark' | 'fixed-light';
 }) {
   const [failed, setFailed] = useState(!src);
   const ref = useRef<HTMLImageElement>(null);
@@ -58,9 +59,12 @@ export function Logo({
     );
   }
 
+  const light = tone === 'light' || tone === 'fixed-light';
+  const textTone = tone === 'fixed-light' ? 'text-fixed-paper' : tone === 'fixed-dark' ? 'text-fixed-ink' : light ? 'text-paper' : 'text-ink';
+
   return (
-    <span className={cn('inline-flex items-center gap-2.5', tone === 'light' ? 'text-paper' : 'text-ink', className)}>
-      <StarMark className={cn('h-8 w-8 sm:h-9 sm:w-9', tone === 'light' ? 'text-gold-soft' : 'text-teal')} />
+    <span className={cn('inline-flex items-center gap-2.5', textTone, className)}>
+      <StarMark className={cn('h-8 w-8 sm:h-9 sm:w-9', light ? 'text-gold-soft' : 'text-teal')} />
       <span className="font-serif text-[1.35rem] font-semibold leading-none tracking-tight sm:text-2xl">{name}</span>
     </span>
   );

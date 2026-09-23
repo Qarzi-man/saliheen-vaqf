@@ -8,6 +8,7 @@ import { site } from '@/config/site';
 import { cn } from '@/lib/cn';
 import { Logo } from './Logo';
 import { LangSwitch } from './LangSwitch';
+import { ThemeToggle } from './ThemeToggle';
 
 const SECTION_IDS = ['about', 'sharia', 'legal', 'how', 'transparency', 'support'] as const;
 type SectionId = (typeof SECTION_IDS)[number];
@@ -74,7 +75,7 @@ export function Header({ lang, content }: { lang: Lang; content: Content }) {
           </a>
 
           <nav aria-label={content.ui.sectionsNav} className="hidden xl:block">
-            <ul className="flex flex-nowrap items-center gap-0.5 rounded-full border border-ink/10 bg-white/60 p-1.5 backdrop-blur">
+            <ul className="flex flex-nowrap items-center gap-0.5 rounded-full border border-ink/10 bg-paper/60 p-1.5 backdrop-blur">
               {links.map((l) => (
                 <li key={l.id}>
                   <a
@@ -93,6 +94,7 @@ export function Header({ lang, content }: { lang: Lang; content: Content }) {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
+            <ThemeToggle labelDark={content.ui.switchToDark} labelLight={content.ui.switchToLight} />
             <LangSwitch lang={lang} label={content.ui.language} className="hidden sm:inline-flex" />
             <a href="#support" className="btn btn-primary hidden !px-5 !py-2.5 !text-sm sm:inline-flex">
               {content.ui.supportCta}

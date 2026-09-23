@@ -50,7 +50,7 @@ export function Why({ content, lang }: { content: Content; lang: Lang }) {
                     href={projectUrl(lang, p.slug)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex h-full flex-col rounded-3xl border border-ink/10 bg-white/70 p-5 transition duration-300 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lift"
+                    className="group flex h-full flex-col rounded-3xl border border-ink/10 bg-paper/70 p-5 transition duration-300 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lift"
                   >
                     <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-mist text-teal transition group-hover:bg-teal group-hover:text-paper">
                       <Icon className="h-5 w-5" aria-hidden="true" />

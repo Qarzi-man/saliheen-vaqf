@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { langPath, languageNames, otherLang, type Lang } from '@/i18n/config';
+import { asset } from '@/lib/assets';
 import { cn } from '@/lib/cn';
 
 /** Переключатель языка: сохраняет текущий раздел страницы (#hash). */
@@ -17,7 +18,7 @@ export function LangSwitch({ lang, label, className }: { lang: Lang; label: stri
   const target = otherLang(lang);
   return (
     <a
-      href={`${langPath(target)}${hash}`}
+      href={`${asset(langPath(target))}${hash}`}
       hrefLang={target === 'tg' ? 'tg' : 'ru'}
       lang={target === 'tg' ? 'tg' : 'ru'}
       aria-label={`${label}: ${languageNames[target]}`}

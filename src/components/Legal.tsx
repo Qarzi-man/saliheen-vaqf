@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Clock, Info, Scale } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Clock, Scale } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import type { Lang } from '@/i18n/config';
 import type { Content, LegalDoc } from '@/content/types';
@@ -87,7 +87,6 @@ export function Legal({ content, lang }: { content: Content; lang: Lang }) {
   const { legal, ui } = content;
   const label = ui.sourceWord;
 
-  const civil = getSource('civil-code');
   const law = getSource('law-charity');
 
   return (
@@ -106,23 +105,16 @@ export function Legal({ content, lang }: { content: Content; lang: Lang }) {
           </div>
         </div>
 
+        {/*
+          Карточка Гражданского кодекса намеренно убрана: бо́льшая часть его статей
+          в этом разделе была сверена только по оглавлению, не по полному тексту —
+          как самостоятельный аргумент это слабее, чем Закон «О благотворительной
+          деятельности», который прочитан полностью. Сами данные (legal.docs.civil)
+          остаются в ru.ts/tg.ts нетронутыми — карточку легко вернуть.
+        */}
         <div className="mt-10 space-y-6">
-          <DocCard
-            index={0}
-            doc={legal.docs.civil}
-            lang={lang}
-            content={content}
-            href={sourceUrl(civil, lang)}
-          />
-          <DocCard
-            index={1}
-            doc={legal.docs.charity}
-            lang={lang}
-            content={content}
-            href={sourceUrl(law, lang)}
-            alt={law.alt ? { label: law.alt.label[lang], url: law.alt.url } : undefined}
-          />
-          <DocCard index={2} doc={legal.docs.charter} lang={lang} content={content} href={charterUrl} />
+          <DocCard index={0} doc={legal.docs.charity} lang={lang} content={content} href={sourceUrl(law, lang)} />
+          <DocCard index={1} doc={legal.docs.charter} lang={lang} content={content} href={charterUrl} />
         </div>
 
         {/* Механизм: предпринимательская деятельность → доход → цели */}
@@ -135,7 +127,7 @@ export function Legal({ content, lang }: { content: Content; lang: Lang }) {
             {legal.mechanism.steps.map((s, i) => (
               <li
                 key={s.label}
-                className="reveal relative flex flex-col rounded-3xl border border-ink/10 bg-white/70 p-5"
+                className="reveal relative flex flex-col rounded-3xl border border-ink/10 bg-paper/70 p-5"
                 style={{ '--d': `${i * 80}ms` } as CSSProperties}
               >
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal font-serif text-base text-paper">{i + 1}</span>
@@ -150,12 +142,6 @@ export function Legal({ content, lang }: { content: Content; lang: Lang }) {
               </li>
             ))}
           </ol>
-          <div className="reveal mt-6 flex gap-3 rounded-2xl border border-ink/10 bg-paper-2 p-5 text-[0.95rem] leading-relaxed text-ink/75">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-teal" aria-hidden="true" />
-            <p>
-              <Cited value={legal.mechanism.note} label={label} />
-            </p>
-          </div>
         </div>
 
         {/* Термины */}
@@ -165,7 +151,7 @@ export function Legal({ content, lang }: { content: Content; lang: Lang }) {
             {legal.terms.items.map((t, i) => (
               <div
                 key={t.term}
-                className="reveal rounded-3xl border border-ink/10 bg-white/70 p-6"
+                className="reveal rounded-3xl border border-ink/10 bg-paper/70 p-6"
                 style={{ '--d': `${(i % 2) * 70}ms` } as CSSProperties}
               >
                 <dt className="font-serif text-xl font-medium text-teal">{t.term}</dt>

@@ -42,7 +42,7 @@ export function Support({ content, lang }: { content: Content; lang: Lang }) {
   }
 
   return (
-    <section id="support" className="section on-dark relative overflow-hidden bg-teal text-paper">
+    <section id="support" className="section on-dark relative overflow-hidden bg-teal text-fixed-paper">
       <div aria-hidden="true" className="bg-star-dark pointer-events-none absolute inset-0 opacity-70 [mask-image:radial-gradient(80%_70%_at_20%_20%,#000,transparent)]" />
       <div aria-hidden="true" className="pointer-events-none absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-gold/25 blur-3xl" />
 
@@ -51,7 +51,7 @@ export function Support({ content, lang }: { content: Content; lang: Lang }) {
           <SectionHead onDark eyebrow={support.eyebrow} title={support.title} lead={<Cited value={support.lead} label={ui.sourceWord} />} />
 
           <div className="reveal mt-10">
-            <p id="method-label" className="text-xs font-semibold uppercase tracking-[0.18em] text-paper/55">
+            <p id="method-label" className="text-xs font-semibold uppercase tracking-[0.18em] text-fixed-paper/55">
               {support.chooseLabel}
             </p>
             <div role="radiogroup" aria-labelledby="method-label" className="mt-4 grid gap-3">
@@ -69,26 +69,26 @@ export function Support({ content, lang }: { content: Content; lang: Lang }) {
                       'flex items-center gap-4 rounded-2xl border px-5 py-4 text-left transition',
                       active
                         ? 'border-gold-soft bg-paper text-ink shadow-lift'
-                        : 'border-paper/20 bg-paper/5 text-paper hover:border-paper/40 hover:bg-paper/10',
+                        : 'border-fixed-paper/20 bg-fixed-paper/5 text-fixed-paper hover:border-fixed-paper/40 hover:bg-fixed-paper/10',
                     )}
                   >
                     <span
                       className={cn(
                         'flex h-11 w-11 shrink-0 items-center justify-center rounded-xl',
-                        active ? 'bg-teal text-paper' : 'bg-paper/10 text-gold-soft',
+                        active ? 'bg-teal text-fixed-paper' : 'bg-fixed-paper/10 text-gold-soft',
                       )}
                     >
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <span className="flex-1">
                       <span className="block font-semibold">{m.label[lang]}</span>
-                      <span className={cn('block text-sm', active ? 'text-ink/60' : 'text-paper/60')}>{m.hint[lang]}</span>
+                      <span className={cn('block text-sm', active ? 'text-ink/60' : 'text-fixed-paper/60')}>{m.hint[lang]}</span>
                     </span>
                     <span
                       aria-hidden="true"
                       className={cn(
                         'flex h-5 w-5 items-center justify-center rounded-full border',
-                        active ? 'border-teal bg-teal text-paper' : 'border-paper/35',
+                        active ? 'border-teal bg-teal text-fixed-paper' : 'border-fixed-paper/35',
                       )}
                     >
                       {active && <Check className="h-3 w-3" />}
@@ -99,14 +99,14 @@ export function Support({ content, lang }: { content: Content; lang: Lang }) {
             </div>
           </div>
 
-          <p className="reveal mt-8 flex items-start gap-2.5 text-[0.85rem] leading-relaxed text-paper/70">
+          <p className="reveal mt-8 flex items-start gap-2.5 text-[0.85rem] leading-relaxed text-fixed-paper/70">
             <Lock className="mt-0.5 h-4 w-4 shrink-0 text-gold-soft" aria-hidden="true" />
             {support.secureNote}
           </p>
         </div>
 
         {/* Панель выбранного способа */}
-        <div className="reveal self-start rounded-[2rem] border border-paper/15 bg-paper p-6 text-ink shadow-lift sm:p-9" style={{ '--d': '120ms' } as React.CSSProperties}>
+        <div className="reveal self-start rounded-[2rem] border border-fixed-paper/15 bg-paper p-6 text-ink shadow-lift sm:p-9" style={{ '--d': '120ms' } as React.CSSProperties}>
           <div aria-live="polite">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-ink">{method.label[lang]}</p>
             <p className="mt-2 font-serif text-2xl font-medium leading-snug">{method.hint[lang]}</p>
@@ -114,6 +114,7 @@ export function Support({ content, lang }: { content: Content; lang: Lang }) {
             {method.kind === 'qr' && (
               <div className="mt-6">
                 <div className="mx-auto w-full max-w-[15rem] overflow-hidden rounded-2xl border border-ink/10 bg-white p-3">
+                  {/* bg-white намеренно фиксированный: под QR-кодом нужен буквально белый фон для контраста сканирования, а не адаптивный paper */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={method.qrImage} alt={method.label[lang]} className="h-auto w-full" />
                 </div>

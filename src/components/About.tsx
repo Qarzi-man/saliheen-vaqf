@@ -84,14 +84,14 @@ export function About({ content }: { content: Content }) {
             </article>
 
             <article
-              className="reveal on-dark bg-star-dark relative overflow-hidden rounded-3xl border border-ink/10 bg-ink p-6 text-paper shadow-lift sm:p-8"
+              className="reveal on-dark bg-star-dark relative overflow-hidden rounded-3xl border border-fixed-ink/10 bg-fixed-ink p-6 text-fixed-paper shadow-lift sm:p-8"
               style={{ '--d': '100ms' } as CSSProperties}
             >
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-soft">{about.compare.waqf.title}</p>
               <p className="mt-3 font-serif text-2xl leading-snug">{about.compare.waqf.lead}</p>
               <ul className="mt-6 space-y-3.5">
                 {about.compare.waqf.points.map((p) => (
-                  <li key={p} className="flex gap-3 text-[0.95rem] leading-relaxed text-paper/85">
+                  <li key={p} className="flex gap-3 text-[0.95rem] leading-relaxed text-fixed-paper/85">
                     <Check className="mt-1 h-4 w-4 shrink-0 text-gold-soft" aria-hidden="true" />
                     {p}
                   </li>

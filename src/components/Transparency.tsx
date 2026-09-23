@@ -28,7 +28,7 @@ export function Transparency({ content, lang }: { content: Content; lang: Lang }
                 href={l.href(lang)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col rounded-3xl border border-ink/10 bg-white/70 p-6 transition duration-300 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lift"
+                className="group flex h-full flex-col rounded-3xl border border-ink/10 bg-paper/70 p-6 transition duration-300 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lift"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-mist text-teal">
                   <FileText className="h-5 w-5" aria-hidden="true" />
@@ -76,7 +76,7 @@ export function Transparency({ content, lang }: { content: Content; lang: Lang }
         {/* Документы */}
         <div className="mt-16">
           <h3 className="h3 reveal">{t.documentsTitle}</h3>
-          <ul className="mt-6 divide-y divide-ink/10 overflow-hidden rounded-3xl border border-ink/10 bg-white/70">
+          <ul className="mt-6 divide-y divide-ink/10 overflow-hidden rounded-3xl border border-ink/10 bg-paper/70">
             {docs.map((d) => (
               <li key={d.label} className="flex flex-wrap items-center justify-between gap-3 px-6 py-5">
                 <span className="flex items-center gap-3 font-medium">

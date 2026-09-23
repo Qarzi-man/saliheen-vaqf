@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Check, Link2, MessageCircle, Send, Share2, Facebook } from 'lucide-react';
 import type { Lang } from '@/i18n/config';
 import { langPath } from '@/i18n/config';
+import { asset } from '@/lib/assets';
 import type { Content } from '@/content/types';
 import { site } from '@/config/site';
 import { XGlyph } from './icons';
@@ -15,7 +16,7 @@ export function Share({ content, lang }: { content: Content; lang: Lang }) {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    setUrl(`${window.location.origin}${langPath(lang)}`);
+    setUrl(`${window.location.origin}${asset(langPath(lang))}`);
     setCanNative(typeof navigator.share === 'function');
   }, [lang]);
 
@@ -47,7 +48,7 @@ export function Share({ content, lang }: { content: Content; lang: Lang }) {
   }
 
   const pill =
-    'inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/80 px-5 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-teal/40 hover:shadow-soft';
+    'inline-flex items-center gap-2 rounded-full border border-ink/15 bg-paper/80 px-5 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-teal/40 hover:shadow-soft';
 
   return (
     <section id="share" className="section bg-paper-2 !py-16 sm:!py-20">

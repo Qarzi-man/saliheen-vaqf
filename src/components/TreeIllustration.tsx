@@ -67,7 +67,7 @@ export function TreeIllustration({ label }: { label: string }) {
       <path d="M0 502 C 120 484, 260 514, 480 492 V560 H0 Z" className="fill-leaf/35" />
 
       {/* тень */}
-      <ellipse className="g-shade fill-ink/15" cx="240" cy="476" rx="152" ry="14" />
+      <ellipse className="g-shade fill-fixed-ink/15" cx="240" cy="476" rx="152" ry="14" />
 
       {/* семя и росток */}
       <ellipse className="g-seed fill-gold-ink" cx="240" cy="466" rx="9" ry="6.5" transform="rotate(-18 240 466)" />
@@ -79,14 +79,14 @@ export function TreeIllustration({ label }: { label: string }) {
 
       {/* ствол и ветви */}
       <path
-        className="g-trunk stroke-ink-2"
+        className="g-trunk stroke-fixed-ink"
         pathLength={100}
         d="M240 468 C 236 430, 246 392, 240 300"
         fill="none"
         strokeWidth="13"
         strokeLinecap="round"
       />
-      <g fill="none" className="stroke-ink-2" strokeLinecap="round">
+      <g fill="none" className="stroke-fixed-ink" strokeLinecap="round">
         <path className="g-branch" pathLength={100} d="M241 372 C 214 356, 190 348, 166 322" strokeWidth="8" />
         <path className="g-branch" pathLength={100} d="M240 352 C 270 340, 294 330, 318 302" strokeWidth="8" />
         <path className="g-branch" pathLength={100} d="M240 322 C 232 300, 224 282, 208 262" strokeWidth="6" />
@@ -134,7 +134,7 @@ export function TreeIllustration({ label }: { label: string }) {
       {/* люди в тени: взрослые, ребёнок — образ «польза для общества» */}
       <g className="g-people">
         <circle cx="190" cy="441" r="7.5" className="fill-gold" />
-        <rect x="181" y="450" width="18" height="26" rx="9" className="fill-ink-2" />
+        <rect x="181" y="450" width="18" height="26" rx="9" className="fill-fixed-ink" />
         <circle cx="226" cy="454" r="6" className="fill-gold" />
         <rect x="219.5" y="461" width="13" height="15" rx="6.5" className="fill-gold-ink" />
         <circle cx="272" cy="438" r="8" className="fill-gold" />

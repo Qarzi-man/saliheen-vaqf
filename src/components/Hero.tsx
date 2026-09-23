@@ -46,7 +46,7 @@ export function Hero({ content }: { content: Content }) {
             <ol className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">
               {hero.path.map((step, i) => (
                 <li key={step} className="flex items-center gap-3 text-[0.95rem] text-ink/80">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-white/70 text-xs font-semibold tabular-nums text-gold-ink">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-paper/70 text-xs font-semibold tabular-nums text-gold-ink">
                     {i + 1}
                   </span>
                   {step}

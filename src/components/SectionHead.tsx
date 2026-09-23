@@ -17,8 +17,8 @@ export function SectionHead({
   return (
     <div className={cn('reveal max-w-3xl', className)}>
       <p className={cn('eyebrow', onDark && '!text-gold-soft')}>{eyebrow}</p>
-      <h2 className={cn('h2 mt-5', onDark && 'text-paper')}>{title}</h2>
-      {lead ? <p className={cn('lead mt-6', onDark && '!text-paper/75')}>{lead}</p> : null}
+      <h2 className={cn('h2 mt-5', onDark && 'text-fixed-paper')}>{title}</h2>
+      {lead ? <p className={cn('lead mt-6', onDark && '!text-fixed-paper/75')}>{lead}</p> : null}
     </div>
   );
 }
