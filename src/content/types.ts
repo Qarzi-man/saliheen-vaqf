@@ -51,6 +51,8 @@ export interface Content {
     sectionsNav: string;
     external: string;
     backToTop: string;
+    switchToDark: string;
+    switchToLight: string;
   };
 
   nav: {
