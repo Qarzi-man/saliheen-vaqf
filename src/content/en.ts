@@ -231,7 +231,7 @@ export const en: Content = {
   faq: {
     eyebrow: 'FAQ',
     title: 'Frequently asked questions about Waqf',
-    lead: 'Short answers to the most common questions — drawn from IslamQA, M. Jawad Mughniyyah\u2019s "The Five Schools of Islamic Law", and AAOIFI standards.',
+    lead: '',
     items: [
       {
         q: 'What is waqf?',
@@ -299,7 +299,7 @@ export const en: Content = {
   legal: {
     eyebrow: 'Legal basis',
     title: 'The legal basis in Tajikistan',
-    lead: 'Only what is confirmed by the text of the document is included here. We do not present general norms as a "law on waqf".',
+    lead: '',
     docs: {
       charity: {
         badge: 'Law',
