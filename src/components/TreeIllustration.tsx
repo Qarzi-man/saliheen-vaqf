@@ -4,6 +4,10 @@ import type { CSSProperties } from 'react';
  * Образ проекта: «семя → росток → дерево → тень → плоды → люди».
  * Анимация — чистый CSS (классы g-* в globals.css); при prefers-reduced-motion показывается итоговый кадр.
  * Цвета берутся из токенов (--teal, --leaf, --gold …), поэтому иллюстрация подстраивается под палитру сайта.
+ *
+ * День/ночь: в разметке есть И солнце, И луна со звёздами — какое из них видно,
+ * решает CSS (.sky-day / .sky-night в globals.css) по атрибуту data-theme на <html>.
+ * Так переключение происходит мгновенно вместе с темой, без мигания и без JS.
  */
 const fruits: [number, number][] = [
   [196, 262],
@@ -17,6 +21,20 @@ const fruits: [number, number][] = [
 
 const rays = Array.from({ length: 16 }, (_, i) => i);
 
+/** Звёзды ночного неба: [x, y, радиус, задержка мерцания]. */
+const stars: [number, number, number, number][] = [
+  [84, 60, 1.8, 0],
+  [138, 112, 1.3, 0.7],
+  [196, 64, 1.5, 1.4],
+  [252, 128, 1.2, 2.1],
+  [300, 72, 1.6, 0.4],
+  [60, 150, 1.4, 1.8],
+  [420, 210, 1.5, 1.1],
+  [446, 96, 1.2, 2.5],
+  [160, 176, 1.1, 0.9],
+  [360, 268, 1.3, 1.6],
+];
+
 export function TreeIllustration({ label }: { label: string }) {
   return (
     <svg viewBox="0 0 480 560" role="img" aria-label={label} className="h-full w-full">
@@ -29,6 +47,12 @@ export function TreeIllustration({ label }: { label: string }) {
           <stop offset="0" style={{ stopColor: 'rgb(var(--gold-soft))', stopOpacity: 0.95 }} />
           <stop offset="1" style={{ stopColor: 'rgb(var(--gold-soft))', stopOpacity: 0 }} />
         </radialGradient>
+        {/* Вырез, из которого получается месяц: круг минус смещённый круг. */}
+        <mask id="moon-crescent">
+          <rect width="480" height="560" fill="black" />
+          <circle cx="376" cy="118" r="38" fill="white" />
+          <circle cx="358" cy="104" r="34" fill="black" />
+        </mask>
       </defs>
 
       <rect width="480" height="560" fill="url(#tree-sky)" />
@@ -40,8 +64,8 @@ export function TreeIllustration({ label }: { label: string }) {
         <circle cx="376" cy="118" r="205" />
       </g>
 
-      {/* солнце */}
-      <g className="g-sun">
+      {/* ── ДЕНЬ: солнце ── */}
+      <g className="sky-day g-sun">
         <circle cx="376" cy="118" r="120" fill="url(#tree-glow)" />
         <circle cx="376" cy="118" r="38" className="fill-gold-soft" />
         <g className="g-spin">
@@ -57,6 +81,27 @@ export function TreeIllustration({ label }: { label: string }) {
               strokeLinecap="round"
               transform={`rotate(${(i * 360) / rays.length} 376 118)`}
               opacity="0.55"
+            />
+          ))}
+        </g>
+      </g>
+
+      {/* ── НОЧЬ: луна и звёзды ── */}
+      <g className="sky-night">
+        <g className="g-sun">
+          <circle cx="376" cy="118" r="110" fill="url(#tree-glow)" opacity="0.5" />
+          {/* месяц: мягкий жёлто-белый, как ночной свет */}
+          <circle cx="376" cy="118" r="38" className="fill-gold-soft" mask="url(#moon-crescent)" />
+        </g>
+        <g className="fill-gold-soft">
+          {stars.map(([x, y, r, delay]) => (
+            <circle
+              key={`${x}-${y}`}
+              className="g-star"
+              cx={x}
+              cy={y}
+              r={r}
+              style={{ '--star-delay': `${delay}s` } as CSSProperties}
             />
           ))}
         </g>

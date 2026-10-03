@@ -340,3 +340,45 @@
   line-height: 2.1;
   letter-spacing: 0;
 }
+
+/* ---------- Иллюстрация: день (солнце) и ночь (луна со звёздами) ---------- */
+/*
+ * В светлой теме видно солнце, в тёмной — месяц и звёзды. Оба варианта лежат
+ * в разметке SVG (TreeIllustration.tsx), а переключает их только CSS по
+ * data-theme на <html> — поэтому смена происходит мгновенно вместе с темой,
+ * без мигания и без участия JS.
+ */
+.sky-night {
+  display: none;
+}
+:root[data-theme='dark'] .sky-day {
+  display: none;
+}
+:root[data-theme='dark'] .sky-night {
+  display: block;
+}
+
+/* Звёзды мягко мерцают; задержка у каждой своя (--star-delay), чтобы не моргали в такт. */
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.g-star {
+  opacity: 0.6;
+}
+.js .g-star {
+  animation: star-twinkle 3.6s ease-in-out infinite;
+  animation-delay: var(--star-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g-star {
+    animation: none;
+    opacity: 0.75;
+  }
+}
