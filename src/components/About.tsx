@@ -1,8 +1,7 @@
 import { Check, Minus } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import type { Content } from '@/content/types';
-import { Cite, Cited } from './Cite';
-import { SectionHead } from './SectionHead';
+import { Cited } from './Cite';
 
 export function About({ content }: { content: Content }) {
   const { about, ui } = content;
@@ -11,15 +10,15 @@ export function About({ content }: { content: Content }) {
   return (
     <section id="about" className="section">
       <div className="container-x">
-        <SectionHead
-          eyebrow={about.eyebrow}
-          title={about.title}
-          lead={<Cited value={about.lead} label={label} />}
-        />
-
-        {/* Садака и вакф */}
-        <div className="mt-10 sm:mt-12">
-          <h3 className="h3 reveal">{about.compareTitle}</h3>
+        {/*
+          Заголовок раздела («Дар бораи Вақф» / «Вақф чист?») намеренно убран:
+          подводящий текст снят, и шапка оставляла пустое место. Раздел теперь
+          начинается сразу со сравнения Садақа/Вақф — его собственный заголовок
+          ниже и служит началом блока. Тексты about.eyebrow/about.title остаются
+          в ru/tg/en на случай, если шапку захотят вернуть.
+        */}
+        <div>
+          <h2 className="h2 reveal">{about.compareTitle}</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             <article className="reveal card">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/45">{about.compare.sadaqa.title}</p>
