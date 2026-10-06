@@ -60,10 +60,7 @@ export const en: Content = {
   about: {
     eyebrow: 'About Waqf',
     title: 'What is waqf?',
-    lead: {
-      text: 'Property set aside as a Waqf must keep its core intact while its benefit continues: the asset itself is not spent when used, like a house, a shop, land, a garden, or a well. To understand how Waqf differs from other kinds of giving, let\u2019s first look at the difference between Sadaqah and Waqf.',
-      cite: ['iqa-13720', 'mughniyya'],
-    },
+    lead: { text: '' },
     compareTitle: 'Sadaqah and Waqf: what is the difference?',
     compare: {
       sadaqa: {
@@ -85,7 +82,7 @@ export const en: Content = {
         ],
       },
       note: {
-        text: 'In other words: with Sadaqah you give the thing itself; with Waqf you give a lasting source of benefit.',
+        text: 'In other words: with Sadaqah you give the thing itself; with Waqf you give a lasting source whose benefit or income is directed toward good causes.',
         cite: ['iqa-13720'],
       },
     },

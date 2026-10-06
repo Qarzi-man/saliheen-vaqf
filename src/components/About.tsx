@@ -18,7 +18,7 @@ export function About({ content }: { content: Content }) {
         />
 
         {/* Садака и вакф */}
-        <div className="mt-16 sm:mt-20">
+        <div className="mt-10 sm:mt-12">
           <h3 className="h3 reveal">{about.compareTitle}</h3>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             <article className="reveal card">

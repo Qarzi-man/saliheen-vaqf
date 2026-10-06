@@ -92,7 +92,7 @@
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
   .section {
-    @apply relative py-20 sm:py-28;
+    @apply relative py-16 sm:py-20;
   }
   .eyebrow {
     @apply inline-flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-gold-ink;

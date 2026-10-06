@@ -84,7 +84,7 @@ export function Legal({ content, lang }: { content: Content; lang: Lang }) {
         </div>
 
         {/* Механизм: предпринимательская деятельность → доход → цели */}
-        <div className="mt-20 sm:mt-28">
+        <div className="mt-16 sm:mt-20">
           <div className="reveal max-w-3xl">
             <h3 className="h3">{legal.mechanism.title}</h3>
             <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/70">{legal.mechanism.lead}</p>
