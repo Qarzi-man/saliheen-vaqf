@@ -44,18 +44,17 @@ export function Logo({
   }, []);
 
   if (!failed && src) {
+    // Без рамки/подложки: логотип прозрачный и должен лежать прямо на фоне.
     return (
-      <span className="inline-flex overflow-hidden rounded-xl shadow-soft">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          ref={ref}
-          src={src}
-          alt={name}
-          onError={() => setFailed(true)}
-          className={cn('h-9 w-auto sm:h-10', imgClassName)}
-          decoding="async"
-        />
-      </span>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        ref={ref}
+        src={src}
+        alt={name}
+        onError={() => setFailed(true)}
+        className={cn('h-9 w-auto sm:h-10', imgClassName)}
+        decoding="async"
+      />
     );
   }
 

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150" role="img" aria-label="Vaqf">
+  <title>Вақф</title>
+  <!--
+    Логотип проекта «Вақф».
+    Смысл: раскрытые ладони удерживают росток (асл нигоҳ дошта мешавад),
+    золотая волна — польза, которая идёт дальше, восход — рост и продолжение.
+    Цвета фирменные: teal #115E59 / leaf #4F8A6B / gold #B08433.
+  -->
+  <g fill="none" fill-rule="evenodd">
+
+    <!-- ЛЕВАЯ ЛАДОНЬ: пальцы + чаша -->
+    <g fill="#115E59">
+      <rect x="62" y="52" width="9" height="34" rx="4.5" transform="rotate(-13 66.5 69)"/>
+      <rect x="73" y="46" width="9" height="40" rx="4.5" transform="rotate(-7 77.5 66)"/>
+      <rect x="85" y="44" width="9" height="42" rx="4.5" transform="rotate(-2 89.5 65)"/>
+      <path d="M60 78c0 14 9 25 22 30l14 5V92c-8-3-14-8-18-14-3-5-6-8-10-8-5 0-8 3-8 8z"/>
+    </g>
+
+    <!-- ПРАВАЯ ЛАДОНЬ (зеркально) -->
+    <g fill="#115E59" transform="translate(240 0) scale(-1 1)">
+      <rect x="62" y="52" width="9" height="34" rx="4.5" transform="rotate(-13 66.5 69)"/>
+      <rect x="73" y="46" width="9" height="40" rx="4.5" transform="rotate(-7 77.5 66)"/>
+      <rect x="85" y="44" width="9" height="42" rx="4.5" transform="rotate(-2 89.5 65)"/>
+      <path d="M60 78c0 14 9 25 22 30l14 5V92c-8-3-14-8-18-14-3-5-6-8-10-8-5 0-8 3-8 8z"/>
+    </g>
+
+    <!-- РОСТОК -->
+    <path d="M120 100V46" stroke="#4F8A6B" stroke-width="4.6" stroke-linecap="round"/>
+    <!-- центральный лист -->
+    <path d="M120 44c0-12 4-22 9-28 5 6 9 16 9 28 0 8-4 14.5-9 18-5-3.5-9-10-9-18z" fill="#4F8A6B" transform="translate(-9 -4)"/>
+    <!-- боковые листья -->
+    <path d="M117 64c-7 1.6-14.4-.4-19.6-4.4-4.6-3.6-7.6-9-8-15 6-1 12.4.4 17.6 4.4 5.2 4 9 9.6 10 15z" fill="#5FA07C"/>
+    <path d="M123 64c7 1.6 14.4-.4 19.6-4.4 4.6-3.6 7.6-9 8-15-6-1-12.4.4-17.6 4.4-5.2 4-9 9.6-10 15z" fill="#5FA07C"/>
+
+    <!-- ЗОЛОТАЯ ВОЛНА: польза, идущая дальше -->
+    <path d="M16 120c28-12 56-12 84-3.4 26 8 52 8.6 80-3.6" stroke="#B08433" stroke-width="5.4" stroke-linecap="round"/>
+    <path d="M28 131c26-8.6 52-8.6 78-2.2 24 6 48 6.4 72-3.2" stroke="#C9A35E" stroke-width="3.4" stroke-linecap="round" opacity=".7"/>
+
+    <!-- ВОСХОД -->
+    <g stroke="#B08433" stroke-width="2.3" stroke-linecap="round">
+      <path d="M200 102V88M211 105l7.6-11M189 105l-7.6-11M217.5 112l12-5.8M182.5 112l-12-5.8"/>
+    </g>
+    <path d="M183.5 117a16.5 16.5 0 0 1 33 0z" fill="#B08433"/>
+  </g>
+</svg>

@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import type { Lang } from '@/i18n/config';
 import type { Content } from '@/content/types';
 import { site } from '@/config/site';
+import { asset } from '@/lib/assets';
 import { cn } from '@/lib/cn';
 import { Logo } from './Logo';
 import { LangSwitch } from './LangSwitch';
@@ -70,7 +71,11 @@ export function Header({ lang, content }: { lang: Lang; content: Content }) {
         )}
       >
         <div className="container-x flex h-[4.25rem] items-center justify-between gap-4 sm:h-20">
-          <a href="#top" aria-label={site.brand[lang]} className="shrink-0" onClick={() => setOpen(false)}>
+          <a href="#top" aria-label={site.brand[lang]} className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
+            {/* Логотип проекта «Вақф» (SVG, фирменные цвета) + логотип организации Салиҳин. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={asset('/vaqf-logo.svg')} alt="" aria-hidden="true" className="h-9 w-auto sm:h-11" decoding="async" />
+            <span aria-hidden="true" className="hidden h-8 w-px bg-ink/15 sm:block" />
             <Logo src={site.logoSrc} name={site.brand[lang]} />
           </a>
 
